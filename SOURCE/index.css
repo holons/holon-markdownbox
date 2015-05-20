@@ -4,6 +4,7 @@
   --Markdownbox-color2  : #666;
   --Markdownbox-color3  : #090;
   --Markdownbox-color4  : #ccc;
+  --Markdownbox-color5  : #000;
   --Markdownbox-font1   : Ubuntu Mono, Open Sans, monaco, sans-serif;
   --Markdownbox-font2   : Ubuntu Mono, Open Sans, monaco, sans-serif;
 }
@@ -15,14 +16,15 @@
   margin-bottom    : 2vmin;
   font-size        : 4vmin;
   font-family      : var(--Markdownbox-font1);
+  color            : var(--Markdownbox-color3);
 }
 
-.Markdownbox > h1,
-.Markdownbox > h2,
-.Markdownbox > h3,
-.Markdownbox > h4,
-.Markdownbox > h5,
-.Markdownbox > h6  {
+.Markdownbox h1,
+.Markdownbox h2,
+.Markdownbox h3,
+.Markdownbox h4,
+.Markdownbox h5,
+.Markdownbox h6  {
   display          : block;
   font-family      : var(--Markdownbox-font2);
   font-size        : 6vmin;
@@ -30,15 +32,23 @@
   font-weight      : 900;
   text-align       : center;
 }
-.Markdownbox > h2,
-.Markdownbox > h3,
-.Markdownbox > h4,
-.Markdownbox > h5,
-.Markdownbox > h6  {
-  color            : var(--Markdownbox-color3);
+.Markdownbox h2,
+.Markdownbox h3,
+.Markdownbox h4,
+.Markdownbox h5,
+.Markdownbox h6  {
+  color            : var(--Markdownbox-color5);
   font-weight      : 500;
 }
-.Markdownbox > li  {
+.Markdownbox li  {
   font-size        : 2.5vmin;
   color            : var(--Markdownbox-color3);
+}
+.Markdownbox a {
+  color            : var(--Markdownbox-color5);
+  text-decoration  : none;
+}
+.Markdownbox a:hover {
+  color            : var(--Markdownbox-color4);
+  text-decoration  : none;
 }
