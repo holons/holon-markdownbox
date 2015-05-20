@@ -1,0 +1,44 @@
+:root {
+  /* THEME */
+  --Markdownbox-color1  : #fff;
+  --Markdownbox-color2  : #666;
+  --Markdownbox-color3  : #090;
+  --Markdownbox-color4  : #ccc;
+  --Markdownbox-font1   : Ubuntu Mono, Open Sans, monaco, sans-serif;
+  --Markdownbox-font2   : Ubuntu Mono, Open Sans, monaco, sans-serif;
+}
+.Markdownbox {
+  background-color : var(--Markdownbox-color1);
+  padding          : 2vmin;
+  border           : 2vmin solid var(--Markdownbox-color2);
+  margin-top       : 2vmin;
+  margin-bottom    : 2vmin;
+  font-size        : 4vmin;
+  font-family      : var(--Markdownbox-font1);
+}
+
+.Markdownbox > h1,
+.Markdownbox > h2,
+.Markdownbox > h3,
+.Markdownbox > h4,
+.Markdownbox > h5,
+.Markdownbox > h6  {
+  display          : block;
+  font-family      : var(--Markdownbox-font2);
+  font-size        : 6vmin;
+  color            : var(--Markdownbox-color4);
+  font-weight      : 900;
+  text-align       : center;
+}
+.Markdownbox > h2,
+.Markdownbox > h3,
+.Markdownbox > h4,
+.Markdownbox > h5,
+.Markdownbox > h6  {
+  color            : var(--Markdownbox-color3);
+  font-weight      : 500;
+}
+.Markdownbox > li  {
+  font-size        : 2.5vmin;
+  color            : var(--Markdownbox-color3);
+}
