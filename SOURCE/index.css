@@ -1,20 +1,29 @@
 :root {
   /* THEME */
-  --Markdownbox-color1  : #fff;
-  --Markdownbox-color2  : #666;
-  --Markdownbox-color3  : #090;
-  --Markdownbox-color4  : #ccc;
-  --Markdownbox-color5  : #000;
-  --Markdownbox-font1   : Ubuntu Mono, Open Sans, monaco, sans-serif;
-  --Markdownbox-font2   : Ubuntu Mono, Open Sans, monaco, sans-serif;
+  --Markdownbox-color1      : #fff;
+  --Markdownbox-color2      : #666;
+  --Markdownbox-color3      : #090;
+  --Markdownbox-color4      : #ccc;
+  --Markdownbox-color5      : #000;
+  --Markdownbox-font1       : Ubuntu Mono, Open Sans, monaco, sans-serif;
+  --Markdownbox-font2       : Ubuntu Mono, Open Sans, monaco, sans-serif;
+  --Markdownbox-font-size1  : 8vw;
+  --Markdownbox-font-size2  : 6vw;
+  --Markdownbox-font-size3  : 4vw;
+  --Markdownbox-borderwidth : 4vw;
 }
 .Markdownbox {
+  position         : relative;
+  text-align       : center;
   background-color : var(--Markdownbox-color1);
-  padding          : 2vmin;
-  border           : 2vmin solid var(--Markdownbox-color2);
-  margin-top       : 2vmin;
-  margin-bottom    : 2vmin;
-  font-size        : 4vmin;
+  padding          : 3vw;
+  padding-left     : 5vw;
+  padding-right    : 5vw;
+  padding-bottom   : 5vw;
+  border           : var(--Markdownbox-borderwidth) solid var(--Markdownbox-color2);
+  margin-top       : 1vw;
+  margin-bottom    : 9vw;
+  font-size        : var(--Markdownbox-font-size3);
   font-family      : var(--Markdownbox-font1);
   color            : var(--Markdownbox-color3);
 }
@@ -26,11 +35,12 @@
 .Markdownbox h5,
 .Markdownbox h6  {
   display          : block;
+}
+.Markdownbox h1 {
   font-family      : var(--Markdownbox-font2);
-  font-size        : 6vmin;
   color            : var(--Markdownbox-color4);
+  font-size        : var(--Markdownbox-font-size1);
   font-weight      : 900;
-  text-align       : center;
 }
 .Markdownbox h2,
 .Markdownbox h3,
@@ -38,17 +48,50 @@
 .Markdownbox h5,
 .Markdownbox h6  {
   color            : var(--Markdownbox-color5);
-  font-weight      : 500;
+  font-size        : var(--Markdownbox-font-size2);
+  font-weight      : 900;
 }
-.Markdownbox li  {
-  font-size        : 2.5vmin;
+.Markdownbox tr    {
+  font-size        : 1.58vw;
+  line-height      : 3vw;
+}
+.Markdownbox td    {
+  padding-left     : 1.5vw;
+}
+.Markdownbox input[type="image"] {
+  width            : 7vw;
+}
+/*.Markdownbox ul a {
+  text-align       : left;
+  color            : red;
+}
+.Markdownbox p + ul > li {
+  position         : relative;
+  left             : -2vw;
+  text-align       : center;
+  list-style-type  : none;
+  color            : greenlvar(--Markdownbox-color3);
+}*/
+.Markdownbox li {
+  text-align    : left;
+  line-height   : 3vw;
+  font-size     : 1.58vw;
+}
+/*.Markdownbox li li {
+  position         : relative;
+  display          : block;
+  left             : -2vw;
+  list-style-type  : none;
   color            : var(--Markdownbox-color3);
-}
+  padding          : 20px;
+}*/
 .Markdownbox a {
-  color            : var(--Markdownbox-color5);
+  color            : var(--Markdownbox-color2);
+  font-weight      : 900;
   text-decoration  : none;
 }
 .Markdownbox a:hover {
   color            : var(--Markdownbox-color4);
+  font-weight      : 900;
   text-decoration  : none;
 }

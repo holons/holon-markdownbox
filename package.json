@@ -1,6 +1,6 @@
 {
   "name": "holon-markdownbox",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "",
   "main": "SOURCE/index.js",
   "style": "SOURCE/index.css",
@@ -13,6 +13,11 @@
   "scripts": {
     "start": "atomify",
     "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "browserify": {
+    "transform": [
+      "babelify"
+    ]
   },
   "atomify": {
     "server": {
