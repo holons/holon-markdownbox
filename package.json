@@ -1,6 +1,6 @@
 {
   "name": "holon-markdownbox",
-  "version": "0.1.1",
+  "version": "0.2.1",
   "description": "",
   "main": "SOURCE/index.js",
   "style": "SOURCE/index.css",
