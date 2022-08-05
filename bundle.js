@@ -1,3 +1,60 @@
+(function(){function r(e,n,t){function o(i,f){if(!n[i]){if(!e[i]){var c="function"==typeof require&&require;if(!f&&c)return c(i,!0);if(u)return u(i,!0);var a=new Error("Cannot find module '"+i+"'");throw a.code="MODULE_NOT_FOUND",a}var p=n[i]={exports:{}};e[i][0].call(p.exports,function(r){var n=e[i][1][r];return o(n||r)},p,p.exports,r,e,n,t)}return n[i].exports}for(var u="function"==typeof require&&require,i=0;i<t.length;i++)o(t[i]);return o}return r})()({1:[function(require,module,exports){
+'use strict';
+/******************************************************************************
+  DEPENDENCIES = CUSTOM SDK [Custom Software Development Kit]
+******************************************************************************/
+// const os        = require('os');
+// const method    = require('exemethod')(function(a,b){return b;});
+// const fastdom   = require('fastdom');
+// const minixhr   = require('minixhr');
+/******************************************************************************
+  PARAMETER = ARGUMENT
+******************************************************************************/
+  // no cli
+/******************************************************************************
+  ERRORS
+******************************************************************************/
+const error     = {
+  container ()    { throw new Error('Argument for container:dom is missing'); }
+};
+/******************************************************************************
+  MODULE INTERNALS & HELPERS
+******************************************************************************/
+const template  = `<div class="Markdownbox"></div>`
+const __        = document.createElement('div');
+/*****************************************************************************/
+function markdownbox (parameter, config) {
+  /****** INITIALIZE *******/
+  // @TODO: employ some kind of "extend" or "xtend" or "merge" strategy instead of "XOR"
+  // const CONTAINER = parameter.container || error.container();
+  const OPTIONS   = parameter.options   || config.options;
+  const DATA      = parameter.data      || null; // @TODO: maybe always a "level" interface?
+  const CHILDREN  = parameter.children  || {};
+
+  /****** WIRE UP *******/
+  const COMPONENT = (__.innerHTML=template,__.childNodes[0]);
+
+  COMPONENT.innerHTML = DATA?.lang[OPTIONS.defaultLanguage];
+  // CONTAINER.appendChild(COMPONENT);
+
+
+  // @TODO: add DATA description - because it should be "json-meta-markdown" :-)
+
+  /******** RETURN *********/
+  const API = { // should be an event emitter too
+    changeLanguage (language) {
+      COMPONENT.innerHTML = DATA.lang[language];
+    }
+  };
+  return { el: COMPONENT, api: API };
+
+}
+/******************************************************************************
+  MODULE = EXPORT [Public Interface]
+******************************************************************************/
+module.exports = markdownbox;
+
+const css = `
 :root {
   /* THEME */
   --Markdownbox-color1      : #fff;
@@ -244,3 +301,84 @@
     font-size        : var(--Markdownbox-highres-font-size1);
   }
 }
+
+`
+},{}],2:[function(require,module,exports){
+const holon_markdownbox = require('..')
+
+const config    = require('_config')();
+
+const { el, api } = holon_markdownbox({}, config)
+
+document.body.append(el)
+},{"..":1,"_config":3}],3:[function(require,module,exports){
+/******************************************************************************
+  DEPENDENCIES
+******************************************************************************/
+var pkg         = require('../../package.json');
+/******************************************************************************
+  PARAMETER = ARGUMENT
+******************************************************************************/
+  // no cli tool
+/******************************************************************************
+  MODULE INTERNALS & HELPERS
+******************************************************************************/
+var _config     = {
+  title       : pkg.name,
+  description : pkg.description,
+  version     : pkg.version,
+  keywords    : pkg.keywords.join(', '),
+  author      : pkg.author.name,
+  website     : pkg.homepage,
+};
+function config (key) {
+  return key ? _config[key] : _config;
+}
+/******************************************************************************
+  EXPORT
+******************************************************************************/
+module.exports  = config;
+
+},{"../../package.json":4}],4:[function(require,module,exports){
+module.exports={
+  "name": "holon-markdownbox",
+  "version": "0.3.0",
+  "description": "",
+  "main": "SOURCE/index.js",
+  "scripts": {
+    "start": "budo demo/demo.js:bundle.js --open --live",
+    "build": "browserify demo/demo.js > bundle.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/holons/holon-markdownbox.git"
+  },
+  "keywords": [
+    "holon",
+    "holons",
+    "holonify",
+    "holonomy",
+    "component",
+    "webcomponent",
+    "module",
+    "block",
+    "BEM"
+  ],
+  "author": {
+    "name": "serapath",
+    "email": "dev@serapath.de",
+    "url": "http://www.github.com/serapath"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/holons/holon-markdownbox/issues"
+  },
+  "homepage": "https://github.com/holons/holon-markdownbox#readme",
+  "devDependencies": {
+    "browserify": "^17.0.0",
+    "budo": "^11.7.0"
+  }
+}
+
+},{}]},{},[2]);

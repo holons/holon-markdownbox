@@ -1,67 +1,12 @@
 {
   "name": "holon-markdownbox",
-  "version": "0.2.1",
+  "version": "0.3.0",
   "description": "",
   "main": "SOURCE/index.js",
-  "style": "SOURCE/index.css",
-  "dependencies": {},
-  "devDependencies": {
-    "atomify": "^7.2.2",
-    "babelify": "^6.1.1",
-    "resrcify": "^1.1.3"
-  },
   "scripts": {
-    "start": "atomify",
+    "start": "budo demo/demo.js:bundle.js --open --live",
+    "build": "browserify demo/demo.js > bundle.js",
     "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "browserify": {
-    "transform": [
-      "babelify"
-    ]
-  },
-  "atomify": {
-    "server": {
-      "open": true,
-      "path": "index.html",
-      "lr": {
-        "verbose": true,
-        "quiet": false,
-        "port": 31337,
-        "sync": true
-      }
-    },
-    "js": {
-      "entry": "SOURCE/index.js",
-      "alias": "BUNDLE/bundle.js",
-      "output": "BUNDLE/bundle.js",
-      "debug": true,
-      "watch": true,
-      "transform": [
-        "babelify"
-      ],
-      "standalone": "API"
-    },
-    "css": {
-      "entry": "SOURCE/index.css",
-      "alias": "BUNDLE/bundle.css",
-      "output": "BUNDLE/bundle.css",
-      "debug": true,
-      "watch": true,
-      "autoprefixer": {
-        "browsers": [
-          "> 1%",
-          "IE 7"
-        ],
-        "cascade": false
-      },
-      "compress": false,
-      "plugin": []
-    },
-    "assets": {
-      "dest": "BUNDLE/assets/",
-      "prefix": "/BUNDLE/assets/",
-      "retainName": false
-    }
   },
   "repository": {
     "type": "git",
@@ -87,5 +32,9 @@
   "bugs": {
     "url": "https://github.com/holons/holon-markdownbox/issues"
   },
-  "homepage": "https://github.com/holons/holon-markdownbox#readme"
+  "homepage": "https://github.com/holons/holon-markdownbox#readme",
+  "devDependencies": {
+    "browserify": "^17.0.0",
+    "budo": "^11.7.0"
+  }
 }
